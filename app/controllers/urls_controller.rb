@@ -1,0 +1,19 @@
+class UrlsController < ApplicationController
+
+  def create
+    @url = Url.new(url_params)
+    @url.set_slug
+    if @url.save
+      render status: :ok, json: { notice: "successfully created"}
+    else 
+      render status: :unprocessable_entity, json: { errors: @url.errors.full_messages }
+    end
+  end
+
+  private
+
+  def url_params
+    params.require(:url).permit(:original_url)
+  end
+
+end
