@@ -3,11 +3,17 @@ import Header from "./Header";
 import Main from "./Main";
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      urls: this.props.urls,
+    };
+  }
+
   render() {
-    let { urls } = this.props;
+    let { urls } = this.state;
     return (
       <div>
-        <Header />
         <Main urls={urls} />
       </div>
     );

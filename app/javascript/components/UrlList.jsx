@@ -38,7 +38,6 @@ class UrlList extends React.Component {
   render() {
     let { urls } = this.props;
     let { errors } = this.state;
-    console.log(urls);
     if (urls.length == 0) {
       return <div>No Url's added</div>;
     }
@@ -46,7 +45,7 @@ class UrlList extends React.Component {
       <div className="url-list-cont">
         {errors ? <Errors errors={errors} /> : ""}
         {urls.map((url) => (
-          <div className="url-card space-flex" key={url.id}>
+          <div className="pd-1 space-flex" key={url.id}>
             <button
               onClick={() => this.handlePin(url.id)}
               className={`pin ${url.pinned ? "pinned" : "nopin"}`}
