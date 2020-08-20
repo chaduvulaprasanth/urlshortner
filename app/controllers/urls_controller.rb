@@ -23,7 +23,7 @@ class UrlsController < ApplicationController
 
   def update
     @url = Url.find(id: params[:id])
-    @url.toggle(:pinned)
+    @url.toggle!(:pinned)
     if @url.save
       render status: :ok, json: { notice: "pin updated successfully"}
     else 
