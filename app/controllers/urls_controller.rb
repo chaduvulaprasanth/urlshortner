@@ -11,7 +11,7 @@ class UrlsController < ApplicationController
   end
 
 
- def create
+ def show
     @url = Url.find(id: params[:id])
     @url.clicked = @url.clicked + 1
     if @url.save
