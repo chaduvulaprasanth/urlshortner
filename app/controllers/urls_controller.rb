@@ -1,5 +1,11 @@
 class UrlsController < ApplicationController
 
+
+  def index
+    @urls = Url.order("pinned DESC, created_at DESC")
+  end
+
+
   def create
     @url = Url.new(url_params)
     @url.set_slug
