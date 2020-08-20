@@ -10,6 +10,18 @@ class UrlsController < ApplicationController
     end
   end
 
+
+ def create
+    @url = Url.find(id: params[:id])
+    @url.clicked = @url.clicked + 1
+    if @url.save
+      render status: :ok, json: { notice: "successfully incremnted clicked count"}
+    else 
+      render status: :unprocessable_entity, json: { errors: @url.errors.full_messages }
+    end
+  end
+
+
   private
 
   def url_params
