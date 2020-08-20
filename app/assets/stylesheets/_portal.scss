@@ -1,0 +1,28 @@
+.portal-input {
+  width: 90%;
+  border: 1px solid #dbdbdb;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  font-weight: 500;
+  font-size: 1rem;
+  outline: none;
+  border-radius: 0.3rem;
+  color: #363636;
+  box-shadow: 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+}
+.portal-input-btn {
+  width: 10%;
+  border: none;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  font-weight: 700;
+  font-size: 1rem;
+  outline: none;
+  color: white;
+  border: none;
+  letter-spacing: 0.06rem;
+  box-shadow: 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+  --bg-opacity: 1;
+  background-color: rgba(159, 122, 234, var(--bg-opacity));
+  cursor: pointer;
+}

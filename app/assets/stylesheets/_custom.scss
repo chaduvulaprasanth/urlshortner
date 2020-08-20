@@ -1,0 +1,68 @@
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 8rem;
+}
+.logo {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06rem;
+}
+.main {
+  --bg-opacity: 1;
+  background-color: rgba(237, 242, 247, var(--bg-opacity));
+  min-height: 100vh;
+}
+.urls-cont {
+  margin: 2rem 0;
+  border-width: 1px;
+  box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.05);
+}
+.bar-option-cont {
+  --bg-opacity: 1;
+  background-color: rgba(128, 90, 213, var(--bg-opacity));
+  padding: 1rem 0;
+}
+.bar-option {
+  width: 100%;
+  font-size: 1.2rem;
+  letter-spacing: 0.06rem;
+  color: white;
+}
+.url-list-cont {
+  background: white;
+}
+.pin {
+  border: none;
+  background: #edf2f7;
+  padding: 1rem;
+  cursor: pointer;
+  color: #718096;
+}
+
+.pinned {
+  color: blue;
+}
+.url-holder {
+  width: 80%;
+}
+.url-item {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: #2d3748;
+  letter-spacing: 0.04rem;
+  font-size: 500;
+  cursor: pointer;
+  word-break: break-all;
+  line-height: 1.5;
+}
+.url-item1 {
+  width: 60%;
+}
+.clicked {
+  color: blue;
+  font-size: 1rem;
+  font-weight: 700;
+}

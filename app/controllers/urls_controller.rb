@@ -18,17 +18,17 @@ class UrlsController < ApplicationController
 
 
   def show
-    @url = Url.find(id: params[:id])
+    @url = Url.find(params[:id])
     @url.clicked = @url.clicked + 1
     if @url.save
-      render status: :ok, json: { notice: "successfully incremnted clicked count"}
+      render status: :ok, json: { notice: "successfully incremnted clicked count", url: @url}
     else 
       render status: :unprocessable_entity, json: { errors: @url.errors.full_messages }
     end
   end
 
   def update
-    @url = Url.find(id: params[:id])
+    @url = Url.find(params[:id])
     @url.toggle!(:pinned)
     if @url.save
       render status: :ok, json: { notice: "pin updated successfully"}
