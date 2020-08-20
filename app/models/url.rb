@@ -1,7 +1,8 @@
 class Url < ApplicationRecord
   validates :original_url, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true, length: { is: 6 }
-
+  validates :clicked, presence: true
+  
   def set_slug
     self.slug = generate_slug
   end
