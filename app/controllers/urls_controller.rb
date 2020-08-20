@@ -11,11 +11,21 @@ class UrlsController < ApplicationController
   end
 
 
- def show
+  def show
     @url = Url.find(id: params[:id])
     @url.clicked = @url.clicked + 1
     if @url.save
       render status: :ok, json: { notice: "successfully incremnted clicked count"}
+    else 
+      render status: :unprocessable_entity, json: { errors: @url.errors.full_messages }
+    end
+  end
+
+  def update
+    @url = Url.find(id: params[:id])
+    @url.toggle!(:pinned)
+    if @url.save
+      render status: :ok, json: { notice: "pin updated successfully"}
     else 
       render status: :unprocessable_entity, json: { errors: @url.errors.full_messages }
     end
