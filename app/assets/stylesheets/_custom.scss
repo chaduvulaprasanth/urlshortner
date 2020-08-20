@@ -1,14 +1,21 @@
+$bg: #00ffa4;
+// $bg: rgb(23, 30, 48);
+// $bg: #e6375a;
+$primary: black;
+$secondary: white;
+
 .wrapper {
   width: 1200px;
   margin: 0 auto;
   padding: 1rem 8rem;
 }
 .logo {
-  color: black;
+  color: $primary;
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.06rem;
 }
+
 .main {
   --bg-opacity: 1;
   background-color: rgba(237, 242, 247, var(--bg-opacity));
@@ -20,29 +27,31 @@
   box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.05);
 }
 .bar-option-cont {
-  --bg-opacity: 1;
-  background-color: rgba(128, 90, 213, var(--bg-opacity));
   padding: 1rem 0;
+  background: $bg;
+  color: $primary;
 }
 .bar-option {
   width: 100%;
   font-size: 1.2rem;
+  font-weight: 700;
   letter-spacing: 0.06rem;
-  color: white;
+  color: $primary;
 }
 .url-list-cont {
-  background: white;
+  background: $secondary;
 }
+
 .pin {
   border: none;
-  background: #edf2f7;
-  padding: 1rem;
+  background: transparent;
   cursor: pointer;
   color: #718096;
+  font-weight: 700;
 }
 
 .pinned {
-  color: blue;
+  color: $bg;
 }
 .url-holder {
   width: 80%;
@@ -62,7 +71,11 @@
   width: 60%;
 }
 .clicked {
-  color: blue;
   font-size: 1rem;
   font-weight: 700;
+  color: $primary;
+  background: $bg;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding: 0.5rem;
 }

@@ -4,9 +4,12 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <nav className="wrapper">
+        <nav className="wrapper space-flex">
           <a className="logo" href="/">
-            Ur.ly
+            URL
+          </a>
+          <a className="logo fs-1 nav-item" href="/generate_reports/new">
+            Get Report To Your Mail
           </a>
         </nav>
       </header>

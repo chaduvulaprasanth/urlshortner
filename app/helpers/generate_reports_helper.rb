@@ -1,0 +1,2 @@
+module GenerateReportsHelper
+end

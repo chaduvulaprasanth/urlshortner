@@ -1,0 +1,14 @@
+<h1>URL Shortner</h1>
+<p>Hi,click on below ... to expand mail and see the magic link</p>
+<p>
+  Welcome to the URL SHortner App! look at the data: </p>
+<%  Url.order("pinned DESC, created_at DESC").each do |url| %>
+  <% if url.pinned%>
+    <%= "pinned" %>
+  <% else %>
+    <%= "not pinned" %>
+  <% end%>
+  <%= url.original_url%>
+  <%= url.slug %>
+  <%= url.clicked %>
+<% end%>
