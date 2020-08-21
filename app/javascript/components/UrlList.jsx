@@ -45,7 +45,7 @@ class UrlList extends React.Component {
       <div className="url-list-cont">
         {errors ? <Errors errors={errors} /> : ""}
         {urls.map((url) => (
-          <div className="pd-1 space-flex" key={url.id}>
+          <div className="url-card pd-1 space-flex r-d-block" key={url.id}>
             <button
               onClick={() => this.handlePin(url.id)}
               className={`pin ${url.pinned ? "pinned" : "nopin"}`}
@@ -68,22 +68,20 @@ class UrlList extends React.Component {
                 />
               </svg>
             </button>
-            <div className="url-holder space-flex">
-              <a
-                href={url.original_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="url-item url-item1"
-              >
-                {url.original_url}
-              </a>
-              <button
-                onClick={() => this.handleClick(url.id)}
-                className="url-item"
-              >
-                {window.location.href + url.slug}
-              </button>
-            </div>
+            <a
+              href={url.original_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="url-item url-item1 r-d-block width-full rpd-vertical-1rem"
+            >
+              {url.original_url}
+            </a>
+            <button
+              onClick={() => this.handleClick(url.id)}
+              className="url-item r-d-block rpd-vertical-1rem"
+            >
+              {window.location.href + url.slug}
+            </button>
             <button className="pin clicked">{url.clicked}</button>
           </div>
         ))}

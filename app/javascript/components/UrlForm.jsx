@@ -26,7 +26,7 @@ class UrlForm extends React.Component {
         })
         .catch((error) => {
           error.json().then(({ errors }) => {
-            this.setState({ ...this.state, errors });
+            this.setState({ ...this.state, errors, msg: "" });
           });
         });
     } else {
@@ -37,19 +37,25 @@ class UrlForm extends React.Component {
   render() {
     let { url, msg, errors } = this.state;
     return (
-      <div className="wrapper">
+      <div className="wrapper rwrapper">
         <div className="portal">
           {errors ? <Errors errors={errors} /> : ""}
-          <form onSubmit={this.handleSubmit} className="flex">
+          {msg && <p className="error-msg">{msg}</p>}
+
+          <form onSubmit={this.handleSubmit} className="flex r-d-block">
             <input
-              className="portal-input"
+              className="portal-input r-d-block width-full"
               type="text"
               name="original_url"
-              placeholder={msg ? msg : "Enter the URL you want to short..."}
+              placeholder="Enter the URL you want to short..."
               value={url.original_url}
               onChange={this.handleChange}
             />
-            <input className="portal-input-btn" type="submit" value="Short" />
+            <input
+              className="portal-input-btn r-d-block width-full"
+              type="submit"
+              value="Short"
+            />
           </form>
         </div>
       </div>
