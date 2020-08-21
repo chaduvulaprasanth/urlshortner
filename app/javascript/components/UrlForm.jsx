@@ -9,6 +9,8 @@ class UrlForm extends React.Component {
       url: { original_url: "" },
       msg: "",
       errors: "",
+      btn_value: "Short",
+      short: true,
     };
   }
 
@@ -20,13 +22,21 @@ class UrlForm extends React.Component {
     e.preventDefault();
     let { url } = this.state;
     if (url.original_url) {
+      this.setState({ btn_value: "Shorting...", short: false });
       API.postNewTask("/urls", "POST", url)
         .then((response) => {
+          this.setState({ btn_value: "Shorted!", short: false });
           window.location.href = "/";
         })
         .catch((error) => {
           error.json().then(({ errors }) => {
-            this.setState({ ...this.state, errors, msg: "" });
+            this.setState({
+              ...this.state,
+              errors,
+              msg: "",
+              short: true,
+              btn_value: "Short",
+            });
           });
         });
     } else {
@@ -35,14 +45,16 @@ class UrlForm extends React.Component {
   };
 
   render() {
-    let { url, msg, errors } = this.state;
+    let { url, msg, errors, btn_value, short } = this.state;
     return (
       <div className="wrapper rwrapper">
         <div className="portal">
           {errors ? <Errors errors={errors} /> : ""}
           {msg && <p className="error-msg">{msg}</p>}
-
-          <form onSubmit={this.handleSubmit} className="flex r-d-block">
+          <form
+            onSubmit={short ? this.handleSubmit : ""}
+            className="flex r-d-block"
+          >
             <input
               className="portal-input r-d-block width-full"
               type="text"
@@ -52,9 +64,11 @@ class UrlForm extends React.Component {
               onChange={this.handleChange}
             />
             <input
-              className="portal-input-btn r-d-block width-full"
+              className={`portal-input-btn r-d-block width-full ${
+                short ? "" : "curs-not-allowed"
+              }`}
               type="submit"
-              value="Short"
+              value={btn_value}
             />
           </form>
         </div>
