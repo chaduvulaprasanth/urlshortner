@@ -6,7 +6,7 @@ class Errors extends React.Component {
     return (
       <div>
         {errors.map((error, index) => (
-          <li className="label-portal-error" key={index}>
+          <li className="error-msg" key={index}>
             {error}
           </li>
         ))}

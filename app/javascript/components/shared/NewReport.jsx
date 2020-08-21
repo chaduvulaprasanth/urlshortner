@@ -23,6 +23,12 @@ class NewReport extends React.Component {
     e.preventDefault();
     let { generate_report } = this.state;
     if (generate_report.email) {
+      if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(generate_report.email)
+      ) {
+        this.setState({ msg: "Invalid Email type" });
+        return;
+      }
       this.setState({
         loading: "Generating Report",
         btn_value: "Generating...",
@@ -46,24 +52,32 @@ class NewReport extends React.Component {
     let { generate_report, msg, loading, btn_value } = this.state;
     return (
       <div className="main">
-        <div className="wrapper portal">
-          <form onSubmit={loading ? "" : this.handleSubmit} className="flex">
+        <div className="wrapper rwrapper portal">
+          {msg && <p className="error-msg">{msg}</p>}
+          <form
+            onSubmit={loading ? "" : this.handleSubmit}
+            className="flex r-d-block"
+          >
             <input
-              className="portal-input report-input"
+              className="portal-input report-input r-d-block width-full"
               type="email"
               name="email"
-              placeholder={msg ? msg : "Enter the Email to recieve report"}
+              placeholder="Enter the Email to recieve report"
               value={generate_report.email}
               onChange={this.handleChange}
             />
             <input
-              className="portal-input-btn"
+              className="portal-input-btn r-d-block width-full"
               type="submit"
               value={btn_value}
             />
           </form>
           <div>
-            {loading ? <p className="flex report-loading">{loading}</p> : ""}
+            {loading ? (
+              <p className="flex report-loading r-fs-1-3">{loading}</p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

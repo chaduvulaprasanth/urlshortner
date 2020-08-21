@@ -8,7 +8,7 @@ class Main extends React.Component {
     return (
       <div className="main">
         <UrlForm />
-        <div className="wrapper">
+        <div className="wrapper rwrapper">
           <section className="urls-cont ">
             <UrlListBar />
             <UrlList urls={this.props.urls} />
