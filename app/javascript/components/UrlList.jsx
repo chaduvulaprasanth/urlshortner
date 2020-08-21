@@ -68,20 +68,22 @@ class UrlList extends React.Component {
                 />
               </svg>
             </button>
-            <a
-              href={url.original_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="url-item url-item1 r-d-block width-full rpd-vertical-1rem"
-            >
-              {url.original_url}
-            </a>
-            <button
-              onClick={() => this.handleClick(url.id)}
-              className="url-item r-d-block rpd-vertical-1rem"
-            >
-              {window.location.href + url.slug}
-            </button>
+            <div className="url-holder space-flex r-d-block  width-full">
+              <a
+                href={url.original_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="url-item url-item1 r-d-block width-full rpd-vertical-1rem"
+              >
+                {url.original_url}
+              </a>
+              <button
+                onClick={() => this.handleClick(url.id)}
+                className="url-item r-d-block width-full rpd-vertical-1rem"
+              >
+                {window.location.href + url.slug}
+              </button>
+            </div>
             <button className="pin clicked">{url.clicked}</button>
           </div>
         ))}
